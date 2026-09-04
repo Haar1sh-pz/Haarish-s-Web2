@@ -20,8 +20,8 @@
             --card-border: rgba(255, 255, 255, 0.06); 
             --card-hover-border: rgba(0, 243, 255, 0.4);
             --font-main: 'Inter', sans-serif;
-            --section-padding: 6rem 2rem;
-            --max-width: 1000px;
+            --section-padding: 8rem 2rem; /* Increased for Apple-style breathing room */
+            --max-width: 1200px; /* Wider for Bento grids */
         }
 
         * {
@@ -40,6 +40,7 @@
             -webkit-font-smoothing: antialiased;
             scroll-behavior: smooth;
             overflow-x: hidden;
+            letter-spacing: -0.01em; /* Apple-style typography */
         }
 
         a {
@@ -59,8 +60,8 @@
             top: 0;
             width: 100%;
             background: rgba(3, 3, 10, 0.6);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--card-border);
             z-index: 1000;
             transition: all 0.4s ease;
@@ -81,7 +82,7 @@
             background: linear-gradient(to right, var(--accent-cyan), var(--accent-purple));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            letter-spacing: 1px;
+            letter-spacing: -0.02em;
         }
 
         .nav-links {
@@ -115,28 +116,28 @@
         }
 
         .hero-content {
-            max-width: 800px;
+            max-width: 900px;
             z-index: 2;
         }
 
         .hero-title {
-            font-size: 4.5rem;
+            font-size: clamp(4rem, 8vw, 7rem); /* Apple-style massive fluid typography */
             font-weight: 800;
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
             background: linear-gradient(135deg, #ffffff 0%, var(--accent-cyan) 50%, var(--accent-purple) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            line-height: 1.1;
-            filter: drop-shadow(0 0 20px rgba(0, 243, 255, 0.2));
+            line-height: 1.05;
+            letter-spacing: -0.04em;
+            filter: drop-shadow(0 0 30px rgba(0, 243, 255, 0.2));
         }
 
         .hero-subtitle {
-            font-size: 1.5rem;
+            font-size: clamp(1.2rem, 3vw, 2rem);
             color: var(--text-muted);
-            margin-bottom: 2rem;
-            font-weight: 400;
-            letter-spacing: 2px;
-            text-transform: uppercase;
+            margin-bottom: 2.5rem;
+            font-weight: 500;
+            letter-spacing: -0.02em;
         }
 
         .hero-contact {
@@ -145,14 +146,15 @@
             border-radius: 99px;
             border: 1px solid var(--card-border);
             display: inline-block;
-            margin-bottom: 2rem;
-            font-size: 1rem;
-            backdrop-filter: blur(8px);
+            margin-bottom: 2.5rem;
+            font-size: 1.05rem;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
 
         .hero-contact p {
             display: inline-block;
-            margin: 0 10px;
+            margin: 0 12px;
         }
 
         section {
@@ -164,36 +166,52 @@
         }
 
         .section-title {
-            font-size: 2.2rem;
-            font-weight: 700;
-            margin-bottom: 3.5rem;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 4rem;
             position: relative;
-            display: inline-block;
+            display: block;
+            text-align: center; /* Centered like Apple feature pages */
             color: #fff;
+            letter-spacing: -0.03em;
         }
 
         .section-title::after {
             content: '';
             position: absolute;
-            left: 0;
-            bottom: -12px;
-            width: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: -16px;
+            width: 80px;
             height: 4px;
             background: linear-gradient(90deg, var(--accent-cyan), var(--accent-purple));
-            border-radius: 2px;
+            border-radius: 4px;
+        }
+
+        /* Apple Bento Box Grid System */
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 2rem;
+        }
+
+        .bento-grid.grid-2 {
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
         }
 
         .timeline-item {
             background: var(--card-bg);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
             border: 1px solid var(--card-border);
-            border-radius: 16px;
-            padding: 2.5rem;
-            margin-bottom: 2rem;
+            border-radius: 32px; /* Deep rounded corners for Apple aesthetic */
+            padding: 3rem;
             transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
             position: relative;
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
         }
 
         .timeline-item::before {
@@ -206,9 +224,9 @@
         }
 
         .timeline-item:hover {
-            transform: translateY(-8px);
+            transform: translateY(-8px) scale(1.01);
             border-color: var(--card-hover-border);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4), 0 0 20px rgba(0, 243, 255, 0.1);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4), 0 0 30px rgba(0, 243, 255, 0.15);
         }
 
         .timeline-item:hover::before {
@@ -217,24 +235,32 @@
 
         .timeline-header {
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
             align-items: flex-start;
             margin-bottom: 1.5rem;
-            flex-wrap: wrap;
-            gap: 1rem;
+            gap: 1.2rem;
+        }
+        
+        .header-top {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            width: 100%;
         }
 
         .timeline-title h3 {
-            font-size: 1.4rem;
+            font-size: 1.6rem;
             color: var(--text-main);
             margin-bottom: 0.4rem;
-            font-weight: 600;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            line-height: 1.2;
         }
 
         .timeline-title h4 {
-            font-size: 1.05rem;
+            font-size: 1.1rem;
             color: var(--accent-cyan);
-            font-weight: 400;
+            font-weight: 500;
         }
 
         .timeline-date {
@@ -243,16 +269,22 @@
             font-weight: 600;
             background: rgba(189, 0, 255, 0.1);
             border: 1px solid rgba(189, 0, 255, 0.2);
-            padding: 0.4rem 1rem;
+            padding: 0.5rem 1.2rem;
             border-radius: 99px;
             white-space: nowrap;
             letter-spacing: 0.5px;
+            display: inline-block;
+        }
+
+        .timeline-content {
+            flex-grow: 1;
         }
 
         .timeline-content p, .timeline-content li {
             color: var(--text-muted);
-            margin-bottom: 0.8rem;
-            font-size: 1rem;
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+            line-height: 1.7;
         }
         
         .timeline-content ul {
@@ -266,35 +298,38 @@
         .strengths-grid {
             display: flex;
             flex-wrap: wrap;
-            gap: 1.2rem;
+            gap: 1rem;
+            justify-content: center;
         }
 
         .strength-tag {
             background: rgba(0, 243, 255, 0.05);
             color: #fff;
             border: 1px solid rgba(0, 243, 255, 0.2);
-            padding: 0.7rem 1.5rem;
-            border-radius: 12px;
-            font-weight: 500;
-            font-size: 0.95rem;
+            padding: 0.8rem 1.8rem;
+            border-radius: 99px;
+            font-weight: 600;
+            font-size: 1rem;
             transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            backdrop-filter: blur(8px);
         }
 
         .strength-tag:hover {
             background: rgba(0, 243, 255, 0.15);
             border-color: var(--accent-cyan);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0, 243, 255, 0.15);
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(0, 243, 255, 0.2);
         }
 
         footer {
             text-align: center;
-            padding: 3rem 2rem;
+            padding: 4rem 2rem;
             border-top: 1px solid var(--card-border);
             color: var(--text-muted);
             margin-top: 4rem;
             background: rgba(3, 3, 10, 0.8);
+            backdrop-filter: blur(20px);
             position: relative;
             z-index: 2;
         }
@@ -303,23 +338,15 @@
             .nav-links {
                 display: none; 
             }
-            .hero-title {
-                font-size: 3rem;
-            }
-            .hero-subtitle {
-                font-size: 1.1rem;
-            }
             .hero-contact {
                 display: flex;
                 flex-direction: column;
-                gap: 0.5rem;
-                border-radius: 16px;
-            }
-            .timeline-header {
-                flex-direction: column;
+                gap: 0.8rem;
+                border-radius: 24px;
             }
             .timeline-item {
-                padding: 1.5rem;
+                padding: 2rem;
+                border-radius: 24px;
             }
         }
 
@@ -386,14 +413,14 @@
 
     <section class="hero" id="about">
         <div class="hero-content">
-            <h1 class="hero-title">Haarish Yogeswaran</h1>
+            <h1 class="hero-title">HAARISH YOGESWARAN</h1>
             <h2 class="hero-subtitle">Electrical Engineering Student</h2>
             <div class="hero-contact">
                 <p>Lynnwood, WA | <a href="mailto:haarish1221@gmail.com">haarish1221@gmail.com</a></p>
                 <p><a href="https://www.linkedin.com/in/haarish-y-52973924s" target="_blank" rel="noopener noreferrer">LinkedIn Profile</a></p>
             </div>
-            <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto;">
-                Seeking Summer 2027 engineering, product, facilities, quality, or community-focused technical opportunities in the Lynnwood / Everett / Bothell area.
+            <p style="color: var(--text-muted); max-width: 700px; margin: 0 auto; font-size: 1.1rem; line-height: 1.8;">
+                Seeking Summer 2027 engineering, product, facilities, quality, or community-focused technical opportunities in the Lynnwood / Everett / Bothell / Seattle area.
             </p>
         </div>
     </section>
@@ -401,41 +428,51 @@
     <section id="education">
         <h2 class="section-title">Education</h2>
         
-        <div class="timeline-item">
-            <div class="timeline-header">
-                <div class="timeline-title">
-                    <h3>California Polytechnic State University, San Luis Obispo</h3>
-                    <h4>B.S. Electrical Engineering</h4>
+        <div class="bento-grid grid-2">
+            <div class="timeline-item">
+                <div class="timeline-header">
+                    <div class="header-top">
+                        <!-- Official Cal Poly Logo -->
+                        <img src="https://upload.wikimedia.org/wikipedia/en/f/f6/Cal_Poly_Seal.svg" alt="Cal Poly Logo" style="width: 60px; height: 60px; flex-shrink: 0; box-shadow: 0 4px 15px rgba(0,0,0,0.3); border-radius: 50%; background: #ffffff; padding: 2px; object-fit: contain;" onerror="this.onerror=null; this.src='https://placehold.co/60x60/154734/F2C75C?text=CP';">
+                        <div class="timeline-title">
+                            <h3>California Polytechnic State University</h3>
+                            <h4>B.S. Electrical Engineering</h4>
+                        </div>
+                    </div>
+                    <div class="timeline-date">Expected 2030</div>
                 </div>
-                <div class="timeline-date">Expected 2030</div>
             </div>
-        </div>
 
-        <div class="timeline-item">
-            <div class="timeline-header">
-                <div class="timeline-title">
-                    <h3>Stanford Summer Session</h3>
-                    <h4>8-week residential program</h4>
+            <div class="timeline-item">
+                <div class="timeline-header">
+                    <div class="header-top">
+                        <!-- Official Stanford Logo -->
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Stanford_Cardinal_logo.svg" alt="Stanford Logo" style="width: 60px; height: 60px; flex-shrink: 0; box-shadow: 0 4px 15px rgba(0,0,0,0.3); border-radius: 12px; background: #ffffff; padding: 6px; object-fit: contain;" onerror="this.onerror=null; this.src='https://placehold.co/60x60/8C1515/ffffff?text=S';">
+                        <div class="timeline-title">
+                            <h3>Stanford Summer Session</h3>
+                            <h4>8-week residential program</h4>
+                        </div>
+                    </div>
+                    <div class="timeline-date">Summer 2025 (Grade 11)</div>
                 </div>
-                <div class="timeline-date">Summer 2025 (Grade 11)</div>
+                <div class="timeline-content">
+                    <p>Engaged in a residential academic community, collaborating with students from diverse backgrounds through coursework and campus activities.</p>
+                    <ul>
+                        <li><strong>CEE 107S Understand Energy: Essentials</strong> - Grade: A</li>
+                        <li><strong>CEE 176A Energy Efficient Buildings</strong> - Grade: A</li>
+                        <li><strong>CTL 53 Thriving Academically in College</strong> - Grade: S (Satisfactory)</li>
+                    </ul>
+                </div>
             </div>
-            <div class="timeline-content">
-                <p>Engaged in a residential academic community, collaborating with students from diverse backgrounds through coursework and campus activities.</p>
-                <ul>
-                    <li><strong>CEE 107S Understand Energy: Essentials</strong> - Grade: A</li>
-                    <li><strong>CEE 176A Energy Efficient Buildings</strong> - Grade: A</li>
-                    <li><strong>CTL 53 Thriving Academically in College</strong> - Grade: S (Satisfactory)</li>
-                </ul>
-            </div>
-        </div>
 
-        <div class="timeline-item">
-            <div class="timeline-header">
-                <div class="timeline-title">
-                    <h3>Mountlake Terrace High School</h3>
-                    <h4>High School Diploma</h4>
+            <div class="timeline-item" style="grid-column: 1 / -1;">
+                <div class="timeline-header">
+                    <div class="timeline-title">
+                        <h3>Mountlake Terrace High School</h3>
+                        <h4>High School Diploma</h4>
+                    </div>
+                    <div class="timeline-date">Graduated 2026</div>
                 </div>
-                <div class="timeline-date">Graduated 2026</div>
             </div>
         </div>
     </section>
@@ -443,44 +480,45 @@
     <section id="awards">
         <h2 class="section-title">Honors & Awards</h2>
 
-        <div class="timeline-item">
-            <div class="timeline-header">
-                <div class="timeline-title">
-                    <h3>Donald Haase Memorial Scholarship | $1,000 Award</h3>
-                    <h4>Foundation for Edmonds School District</h4>
+        <div class="bento-grid">
+            <div class="timeline-item">
+                <div class="timeline-header">
+                    <div class="timeline-title">
+                        <h3>Seattle City Light/CLEA Scholarship</h3>
+                        <h4>$1,500 Award</h4>
+                    </div>
+                    <div class="timeline-date">May 2026</div>
                 </div>
-                <div class="timeline-date">Jun 2026</div>
+                <div class="timeline-content">
+                    <p>Selected as one of 9 recipients of the Seattle City Light/CLEA Scholarship. Award amounts varied between recipients, and I received the highest award amount of $1,500. This scholarship recognized my academic achievement, leadership, and community involvement.</p>
+                </div>
             </div>
-            <div class="timeline-content">
-                <p><em>Associated with Mountlake Terrace High School</em></p>
-                <p>Recipient of the Donald Haase Memorial Scholarship, a $1,000 award from the Foundation for Edmonds School District, recognizing my academic journey and achievements as a student at Mountlake Terrace High School.</p>
-            </div>
-        </div>
 
-        <div class="timeline-item">
-            <div class="timeline-header">
-                <div class="timeline-title">
-                    <h3>Seattle City Light/CLEA Scholarship | $1,500 Award</h3>
-                    <h4>Seattle City Light / CLEA</h4>
+            <div class="timeline-item">
+                <div class="timeline-header">
+                    <div class="timeline-title">
+                        <h3>Donald Haase Memorial Scholarship</h3>
+                        <h4>$1,000 Award - Foundation for Edmonds School District</h4>
+                    </div>
+                    <div class="timeline-date">Jun 2026</div>
                 </div>
-                <div class="timeline-date">May 2026</div>
+                <div class="timeline-content">
+                    <p><em>Associated with Mountlake Terrace High School</em></p>
+                    <p>Recipient of the Donald Haase Memorial Scholarship, recognizing my academic journey and achievements as a student.</p>
+                </div>
             </div>
-            <div class="timeline-content">
-                <p>Selected as one of 9 recipients of the Seattle City Light/CLEA Scholarship. Award amounts varied between recipients, and I received the highest award amount of $1,500. This scholarship recognized my academic achievement, leadership, and community involvement.</p>
-            </div>
-        </div>
 
-        <div class="timeline-item">
-            <div class="timeline-header">
-                <div class="timeline-title">
-                    <h3>Cal Poly National Green & Gold Scholarship | $1,000 Award</h3>
-                    <h4>California Polytechnic State University, San Luis Obispo</h4>
+            <div class="timeline-item">
+                <div class="timeline-header">
+                    <div class="timeline-title">
+                        <h3>Cal Poly National Green & Gold Scholarship</h3>
+                        <h4>$1,000 Award - Cal Poly SLO</h4>
+                    </div>
+                    <div class="timeline-date">Apr 2026</div>
                 </div>
-                <div class="timeline-date">Apr 2026</div>
-            </div>
-            <div class="timeline-content">
-                <p><em>Associated with California Polytechnic State University-San Luis Obispo</em></p>
-                <p>Recipient of the Cal Poly National Green & Gold Scholarship, a $1,000 award granted by Cal Poly San Luis Obispo in recognition of scholarship eligibility, academic achievement, and overall student profile.</p>
+                <div class="timeline-content">
+                    <p>Recipient of the Cal Poly National Green & Gold Scholarship, a $1,000 award granted in recognition of scholarship eligibility, academic achievement, and overall student profile.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -488,79 +526,71 @@
     <section id="leadership">
         <h2 class="section-title">Leadership & Service</h2>
 
-        <div class="timeline-item">
-            <div class="timeline-header">
-                <div class="timeline-title">
-                    <h3>Key Club International</h3>
-                    <h4>Team Leader</h4>
+        <div class="bento-grid grid-2">
+            <div class="timeline-item">
+                <div class="timeline-header">
+                    <div class="timeline-title">
+                        <h3>Key Club International</h3>
+                        <h4>Team Leader</h4>
+                    </div>
+                    <div class="timeline-date">May 2025 - Jun 2026</div>
                 </div>
-                <div class="timeline-date">May 2025 - Jun 2026</div>
+                <div class="timeline-content">
+                    <ul>
+                        <li>Led a team of volunteers in organizing and executing monthly fundraising events.</li>
+                        <li>Facilitated group discussions to keep members focused on tasks and goals while building a collaborative team environment.</li>
+                        <li>Assisted with classroom organization and cleaning, and helped gather and distribute glasses for children in need.</li>
+                    </ul>
+                </div>
             </div>
-            <div class="timeline-content">
-                <ul>
-                    <li>Led a team of volunteers in organizing and executing monthly fundraising events.</li>
-                    <li>Facilitated group discussions to keep members focused on tasks and goals while building a collaborative team environment.</li>
-                    <li>Assisted with classroom organization and cleaning, and helped gather and distribute glasses for children in need.</li>
-                </ul>
-            </div>
-        </div>
 
-        <div class="timeline-item">
-            <div class="timeline-header">
-                <div class="timeline-title">
-                    <h3>Eco Club</h3>
-                    <h4>Public Relations Officer</h4>
+            <div class="timeline-item">
+                <div class="timeline-header">
+                    <div class="timeline-title">
+                        <h3>Eco Club</h3>
+                        <h4>Public Relations Officer</h4>
+                    </div>
+                    <div class="timeline-date">Jun 2025 - Jun 2026</div>
                 </div>
-                <div class="timeline-date">Jun 2025 - Jun 2026</div>
+                <div class="timeline-content">
+                    <ul>
+                        <li>Promoted environmental awareness through social media campaigns reaching more than 500 community members.</li>
+                        <li>Collaborated with local organizations to organize eco-friendly events and created content highlighting club initiatives.</li>
+                    </ul>
+                </div>
             </div>
-            <div class="timeline-content">
-                <ul>
-                    <li>Promoted environmental awareness through social media campaigns reaching more than 500 community members.</li>
-                    <li>Collaborated with local organizations to organize eco-friendly events and created content highlighting club initiatives.</li>
-                </ul>
-            </div>
-        </div>
 
-        <div class="timeline-item">
-            <div class="timeline-header">
-                <div class="timeline-title">
-                    <h3>HOSA-Future Health Professionals</h3>
-                    <h4>Public Relations Officer; Member</h4>
+            <div class="timeline-item">
+                <div class="timeline-header">
+                    <div class="timeline-title">
+                        <h3>HOSA-Future Health Professionals</h3>
+                        <h4>Public Relations Officer; Member</h4>
+                    </div>
+                    <div class="timeline-date">Sep 2024 - Jun 2026</div>
                 </div>
-                <div class="timeline-date">Sep 2024 - Jun 2026</div>
+                <div class="timeline-content">
+                    <ul>
+                        <li>Managed social media platforms and contributed to community awareness initiatives.</li>
+                        <li>Advanced to round two at the state level in HOSA's 2025 Community Awareness event.</li>
+                        <li>Developed public speaking, teamwork, and health education advocacy skills through competitions and peer collaboration.</li>
+                    </ul>
+                </div>
             </div>
-            <div class="timeline-content">
-                <ul>
-                    <li>Managed social media platforms and contributed to community awareness initiatives.</li>
-                    <li>Advanced to round two at the state level in HOSA's 2025 Community Awareness event.</li>
-                    <li>Developed public speaking, teamwork, and health education advocacy skills through competitions and peer collaboration.</li>
-                </ul>
-            </div>
-        </div>
 
-        <div class="timeline-item">
-            <div class="timeline-header">
-                <div class="timeline-title">
-                    <h3>Washington State Sri Lankan Tamil Association (WSSTA)</h3>
-                    <h4>Community Service</h4>
+            <div class="timeline-item">
+                <div class="timeline-header">
+                    <div class="timeline-title">
+                        <h3>Community Initiatives</h3>
+                        <h4>WSSTA & Lynnwood Foodbank</h4>
+                    </div>
+                    <div class="timeline-date">2024 - Present</div>
                 </div>
-                <div class="timeline-date">Oct 2024 - Present</div>
-            </div>
-            <div class="timeline-content">
-                <p>Raised approximately $6,000 for WSSTA to support students in Sri Lanka and worked with volunteers to organize donated items.</p>
-            </div>
-        </div>
-
-        <div class="timeline-item">
-            <div class="timeline-header">
-                <div class="timeline-title">
-                    <h3>Lynnwood Foodbank Volunteer</h3>
-                    <h4>Community Service</h4>
+                <div class="timeline-content">
+                    <ul>
+                        <li><strong>WSSTA:</strong> Raised approximately $6,000 to support students in Sri Lanka and worked with volunteers to organize donated items.</li>
+                        <li><strong>Foodbank:</strong> Volunteered at the Lynnwood Food Bank, helping organize and distribute donated items while supporting daily operations.</li>
+                    </ul>
                 </div>
-                <div class="timeline-date">Jun 2024 - Aug 2026</div>
-            </div>
-            <div class="timeline-content">
-                <p>Volunteered at the Lynnwood Food Bank, helping organize and distribute donated items while supporting daily operations and serving community members in need.</p>
             </div>
         </div>
     </section>
@@ -568,26 +598,28 @@
     <section id="certifications">
         <h2 class="section-title">Licenses & Certifications</h2>
 
-        <div class="timeline-item">
-            <div class="timeline-header">
-                <div class="timeline-title">
-                    <h3>Stay Ahead of the AI Curve</h3>
-                    <h4>Google</h4>
+        <div class="bento-grid">
+            <div class="timeline-item">
+                <div class="timeline-header">
+                    <div class="timeline-title">
+                        <h3>Stay Ahead of the AI Curve</h3>
+                        <h4>Google</h4>
+                    </div>
+                    <div class="timeline-date">Issued Jul 2026</div>
                 </div>
-                <div class="timeline-date">Issued Jul 2026</div>
+                <div class="timeline-content">
+                    <p>Credential ID: <strong>LZZUWK7T7JKL</strong></p>
+                </div>
             </div>
-            <div class="timeline-content">
-                <p>Credential ID: <strong>LZZUWK7T7JKL</strong></p>
-            </div>
-        </div>
 
-        <div class="timeline-item">
-            <div class="timeline-header">
-                <div class="timeline-title">
-                    <h3>CPR Certification</h3>
-                    <h4>American Red Cross</h4>
+            <div class="timeline-item">
+                <div class="timeline-header">
+                    <div class="timeline-title">
+                        <h3>CPR Certification</h3>
+                        <h4>American Red Cross</h4>
+                    </div>
+                    <div class="timeline-date">Nov 2025 - Nov 2027</div>
                 </div>
-                <div class="timeline-date">Nov 2025 - Nov 2027</div>
             </div>
         </div>
     </section>
@@ -603,11 +635,11 @@
             <span class="strength-tag">Mentoring Mindset</span>
         </div>
 
-        <h2 class="section-title" style="margin-top: 4rem;">Languages</h2>
+        <h2 class="section-title" style="margin-top: 6rem;">Languages</h2>
         <div class="strengths-grid">
-            <span class="strength-tag">English (Native or bilingual)</span>
-            <span class="strength-tag">Tamil (Native or bilingual)</span>
-            <span class="strength-tag">Spanish (Limited working proficiency)</span>
+            <span class="strength-tag">English (Native/Bilingual)</span>
+            <span class="strength-tag">Tamil (Native/Bilingual)</span>
+            <span class="strength-tag">Spanish (Limited Working)</span>
         </div>
     </section>
 
