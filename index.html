@@ -24,6 +24,12 @@
             --max-width: 1200px; /* Wider for Bento grids */
         }
 
+        @media (max-width: 768px) {
+            :root {
+                --section-padding: 4rem 1.2rem; /* Tighter padding for mobile */
+            }
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -121,7 +127,7 @@
         }
 
         .hero-title {
-            font-size: clamp(4rem, 8vw, 7rem); /* Apple-style massive fluid typography */
+            font-size: clamp(2.8rem, 8vw, 7rem); /* Adjusted for mobile screens */
             font-weight: 800;
             margin-bottom: 0.5rem;
             background: linear-gradient(135deg, #ffffff 0%, var(--accent-cyan) 50%, var(--accent-purple) 100%);
@@ -133,7 +139,7 @@
         }
 
         .hero-subtitle {
-            font-size: clamp(1.2rem, 3vw, 2rem);
+            font-size: clamp(1.1rem, 4vw, 2rem);
             color: var(--text-muted);
             margin-bottom: 2.5rem;
             font-weight: 500;
@@ -191,12 +197,16 @@
         /* Apple Bento Box Grid System */
         .bento-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+            gap: 1.5rem; /* Slightly tighter on mobile */
         }
 
         .bento-grid.grid-2 {
-            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 400px), 1fr));
+        }
+
+        @media (min-width: 769px) {
+            .bento-grid { gap: 2rem; }
         }
 
         .timeline-item {
@@ -335,18 +345,48 @@
         }
 
         @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem;
+            }
             .nav-links {
-                display: none; 
+                display: flex; 
+                width: 100%;
+                overflow-x: auto; /* Apple-style horizontal scroll for mobile nav */
+                padding-bottom: 0.5rem;
+                justify-content: flex-start;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none; /* Hide scrollbar Firefox */
+            }
+            .nav-links::-webkit-scrollbar {
+                display: none; /* Hide scrollbar Chrome/Safari */
+            }
+            .nav-links li {
+                white-space: nowrap;
+            }
+            .hero {
+                margin-top: 80px; 
             }
             .hero-contact {
                 display: flex;
                 flex-direction: column;
                 gap: 0.8rem;
                 border-radius: 24px;
+                padding: 1rem;
+            }
+            .hero-contact p {
+                margin: 0;
+                word-break: break-word;
             }
             .timeline-item {
-                padding: 2rem;
+                padding: 1.8rem; /* slightly less padding to maximize space */
                 border-radius: 24px;
+            }
+            .header-top {
+                flex-direction: column; /* Stack logo and title on small screens */
+                align-items: flex-start;
+                gap: 1rem;
             }
         }
 
@@ -686,6 +726,19 @@
         });
         
         window.addEventListener('mouseout', () => {
+            mouse.x = null;
+            mouse.y = null;
+        });
+        
+        // Mobile touch support for background canvas
+        window.addEventListener('touchmove', (e) => {
+            if (e.touches.length > 0) {
+                mouse.x = e.touches[0].clientX;
+                mouse.y = e.touches[0].clientY;
+            }
+        }, { passive: true });
+
+        window.addEventListener('touchend', () => {
             mouse.x = null;
             mouse.y = null;
         });
