@@ -1,155 +1,431 @@
 <!DOCTYPE html>
-<!--
-  ================================================================
-  READ THIS BEFORE YOU PASTE ANYTHING
-
-  When Gemini gives you a page, you do NOT paste it into a part of
-  this file. You replace the entire file.
-
-  Click into the editor, press Ctrl+A (Cmd+A on Mac), press Delete,
-  then paste. Everything here is meant to be thrown away.
-
-  Do that only AFTER your live link works. Get the link first.
-  ================================================================
--->
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>My first site</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&family=Unbounded:wght@600;800&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --navy: #0d1d30;
-    --card: #142a44;
-    --line: #27466a;
-    --aqua: #6de1d7;
-    --text: #ffffff;
-    --muted: #94a9bf;
-  }
-  * { box-sizing: border-box; }
-  body {
-    margin: 0;
-    background: var(--navy);
-    color: var(--text);
-    font-family: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
-    line-height: 1.6;
-    display: flex;
-    justify-content: center;
-    padding: 6vh 20px;
-  }
-  main { width: 100%; max-width: 640px; }
-  .badge {
-    display: inline-block;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--aqua);
-    margin-bottom: 18px;
-  }
-  h1 {
-    font-family: "Unbounded", "Manrope", sans-serif;
-    font-weight: 800;
-    font-size: clamp(38px, 9vw, 68px);
-    letter-spacing: -0.05em;
-    line-height: 1.02;
-    margin: 0 0 8px;
-  }
-  .name {
-    font-family: "Unbounded", "Manrope", sans-serif;
-    font-weight: 600;
-    font-size: clamp(18px, 4vw, 24px);
-    letter-spacing: -0.04em;
-    color: var(--aqua);
-    margin: 0 0 24px;
-  }
-  p.lead { font-size: 18px; color: var(--muted); margin: 0 0 34px; }
-  .card {
-    background: var(--card);
-    border: 1px solid var(--line);
-    border-radius: 12px;
-    padding: 26px 28px;
-    margin-bottom: 18px;
-  }
-  .card h2 {
-    font-family: "Unbounded", "Manrope", sans-serif;
-    font-weight: 600;
-    font-size: 15px;
-    letter-spacing: -0.03em;
-    text-transform: uppercase;
-    color: var(--aqua);
-    margin: 0 0 16px;
-  }
-  ol { margin: 0; padding-left: 20px; }
-  li { margin-bottom: 12px; color: var(--muted); }
-  li:last-child { margin-bottom: 0; }
-  li b { color: var(--text); font-weight: 700; }
-  code {
-    font-family: ui-monospace, "SF Mono", Consolas, monospace;
-    font-size: 0.92em;
-    background: #0a1727;
-    border: 1px solid var(--line);
-    border-radius: 5px;
-    padding: 1px 6px;
-    color: var(--aqua);
-  }
-  a { color: var(--aqua); }
-  footer {
-    margin-top: 30px;
-    font-size: 14px;
-    color: #6e839a;
-  }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Haarish Yogeswaran - Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #0f172a; /* Slate 900 */
+            --text-main: #f8fafc; /* Slate 50 */
+            --text-muted: #94a3b8; /* Slate 400 */
+            --accent-color: #38bdf8; /* Sky 400 */
+            --accent-hover: #0ea5e9; /* Sky 500 */
+            --card-bg: #1e293b; /* Slate 800 */
+            --card-border: #334155; /* Slate 700 */
+            --font-main: 'Inter', sans-serif;
+            --section-padding: 5rem 2rem;
+            --max-width: 1000px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            scroll-behavior: smooth;
+        }
+
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--accent-hover);
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--card-border);
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--text-main);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-main);
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 60px; /* Offset for fixed header */
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, var(--text-main), var(--text-muted));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: var(--accent-color);
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+
+        .hero-contact {
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background-color: transparent;
+            border: 2px solid var(--accent-color);
+            color: var(--accent-color);
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-color);
+            color: var(--bg-color);
+        }
+
+        section {
+            padding: var(--section-padding);
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            width: 50%;
+            height: 3px;
+            background-color: var(--accent-color);
+        }
+
+        .timeline-item {
+            background-color: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .timeline-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-color);
+        }
+
+        .timeline-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .timeline-title h3 {
+            font-size: 1.3rem;
+            color: var(--text-main);
+            margin-bottom: 0.25rem;
+        }
+
+        .timeline-title h4 {
+            font-size: 1rem;
+            color: var(--accent-color);
+            font-weight: 400;
+        }
+
+        .timeline-date {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            background-color: rgba(255,255,255,0.05);
+            padding: 0.25rem 0.75rem;
+            border-radius: 99px;
+            white-space: nowrap;
+        }
+
+        .timeline-content p, .timeline-content li {
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+        
+        .timeline-content ul {
+            padding-left: 1.5rem;
+        }
+
+        .strengths-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .strength-tag {
+            background-color: rgba(56, 189, 248, 0.1);
+            color: var(--accent-color);
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 99px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            border-top: 1px solid var(--card-border);
+            color: var(--text-muted);
+            margin-top: 4rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; /* Keep simple for mobile without JS */
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .timeline-header {
+                flex-direction: column;
+            }
+        }
+    </style>
 </head>
 <body>
-<main>
 
-  <span class="badge">Cal Poly Vibe Coding &middot; Session 01</span>
+    <header>
+        <nav>
+            <div class="logo">HY</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#leadership">Leadership & Service</a></li>
+                <li><a href="#skills">Strengths</a></li>
+            </ul>
+        </nav>
+    </header>
 
-  <h1>It&rsquo;s live.</h1>
+    <section class="hero" id="about">
+        <div class="hero-content">
+            <h1 class="hero-title">Haarish Yogeswaran</h1>
+            <h2 class="hero-subtitle">Electrical Engineering Student</h2>
+            <div class="hero-contact">
+                <p>Lynnwood, WA | <a href="mailto:haarish1221@icloud.com">haarish1221@icloud.com</a> | 425-866-3078</p>
+                <p><a href="https://www.linkedin.com/in/haarish-y-52973924s" target="_blank" rel="noopener noreferrer">LinkedIn Profile</a></p>
+            </div>
+            <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto;">
+                Seeking Summer 2027 engineering, product, facilities, quality, or community-focused technical opportunities in the Lynnwood / Everett / Bothell area.
+            </p>
+            <a href="Haarish_Yogeswaran_Resume_Updated.pdf" class="btn" target="_blank" rel="noopener noreferrer">View Full Resume</a>
+        </div>
+    </section>
 
-  <!-- Step 5: change the name below to yours, then commit. -->
-  <p class="name">Built by Haarish </p>
+    <section id="education">
+        <h2 class="section-title">Education</h2>
+        
+        <div class="timeline-item">
+            <div class="timeline-header">
+                <div class="timeline-title">
+                    <h3>California Polytechnic State University, San Luis Obispo</h3>
+                    <h4>B.S. Electrical Engineering</h4>
+                </div>
+                <div class="timeline-date">Expected 2030</div>
+            </div>
+        </div>
 
-  <p class="lead">
-    This page is on the internet. Anyone you send this link to can open it,
-    on any device, right now. You made that happen in about five minutes.
-  </p>
+        <div class="timeline-item">
+            <div class="timeline-header">
+                <div class="timeline-title">
+                    <h3>Stanford Summer Session</h3>
+                    <h4>8-week residential program</h4>
+                </div>
+                <div class="timeline-date">Summer 2025 (Grade 11)</div>
+            </div>
+            <div class="timeline-content">
+                <p>Engaged in a residential academic community, collaborating with students from diverse backgrounds through coursework and campus activities.</p>
+                <ul>
+                    <li><strong>CEE 107S Understand Energy: Essentials</strong> - Grade: A</li>
+                    <li><strong>CEE 176A Energy Efficient Buildings</strong> - Grade: A</li>
+                    <li><strong>CTL 53 Thriving Academically in College</strong> - Grade: S (Satisfactory)</li>
+                </ul>
+            </div>
+        </div>
 
-  <div class="card">
-    <h2>Three things, in this order</h2>
-    <ol>
-      <li><b>Put your name on it.</b> Edit <code>index.html</code>, change
-        YOUR NAME HERE above, commit, refresh this page.</li>
-      <li><b>Submit this link.</b> Go to
-        <a href="https://www.calpolyvibecoding.com/">calpolyvibecoding.com</a>,
-        make an account, and paste this URL in. That is how you get counted,
-        and how Claude seats get assigned.</li>
-      <li><b>Then build.</b> Open Gemini, get a page, and replace this entire
-        file with it.</li>
-    </ol>
-  </div>
+        <div class="timeline-item">
+            <div class="timeline-header">
+                <div class="timeline-title">
+                    <h3>Mountlake Terrace High School</h3>
+                    <h4>High School Diploma</h4>
+                </div>
+                <div class="timeline-date">Graduated 2026</div>
+            </div>
+        </div>
+    </section>
 
-  <div class="card">
-    <h2>How to replace this page</h2>
-    <ol>
-      <li>Copy what Gemini gives you with the <b>copy button</b> on the code
-        block. Do not click and drag.</li>
-      <li>Open <code>index.html</code> here and click the pencil icon.</li>
-      <li><b>Ctrl+A</b> (<b>Cmd+A</b> on Mac), then <b>Delete</b>. All of it.
-        Yes, really.</li>
-      <li>Paste, commit, refresh.</li>
-    </ol>
-  </div>
+    <section id="leadership">
+        <h2 class="section-title">Leadership & Service</h2>
 
-  <footer>
-    Nothing on this page is precious. It exists so the link has something to
-    show before you have something of your own.
-  </footer>
+        <div class="timeline-item">
+            <div class="timeline-header">
+                <div class="timeline-title">
+                    <h3>Key Club International</h3>
+                    <h4>Team Leader</h4>
+                </div>
+                <div class="timeline-date">May 2025 - Jun 2026</div>
+            </div>
+            <div class="timeline-content">
+                <ul>
+                    <li>Led a team of volunteers in organizing and executing monthly fundraising events.</li>
+                    <li>Facilitated group discussions to keep members focused on tasks and goals while building a collaborative team environment.</li>
+                    <li>Assisted with classroom organization and cleaning, and helped gather and distribute glasses for children in need.</li>
+                </ul>
+            </div>
+        </div>
 
-</main>
+        <div class="timeline-item">
+            <div class="timeline-header">
+                <div class="timeline-title">
+                    <h3>Eco Club</h3>
+                    <h4>Public Relations Officer</h4>
+                </div>
+                <div class="timeline-date">Jun 2025 - Jun 2026</div>
+            </div>
+            <div class="timeline-content">
+                <ul>
+                    <li>Promoted environmental awareness through social media campaigns reaching more than 500 community members.</li>
+                    <li>Collaborated with local organizations to organize eco-friendly events and created content highlighting club initiatives.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-header">
+                <div class="timeline-title">
+                    <h3>HOSA-Future Health Professionals</h3>
+                    <h4>Public Relations Officer; Member</h4>
+                </div>
+                <div class="timeline-date">Sep 2024 - Jun 2026</div>
+            </div>
+            <div class="timeline-content">
+                <ul>
+                    <li>Managed social media platforms and contributed to community awareness initiatives.</li>
+                    <li>Advanced to round two at the state level in HOSA's 2025 Community Awareness event.</li>
+                    <li>Developed public speaking, teamwork, and health education advocacy skills through competitions and peer collaboration.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-header">
+                <div class="timeline-title">
+                    <h3>Washington State Sri Lankan Tamil Association (WSSTA)</h3>
+                    <h4>Community Service</h4>
+                </div>
+                <div class="timeline-date">Oct 2024 - Present</div>
+            </div>
+            <div class="timeline-content">
+                <p>Raised approximately $6,000 for WSSTA to support students in Sri Lanka and worked with volunteers to organize donated items.</p>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="timeline-header">
+                <div class="timeline-title">
+                    <h3>Lynnwood Foodbank Volunteer</h3>
+                    <h4>Community Service</h4>
+                </div>
+                <div class="timeline-date">Jun 2024 - Aug 2026</div>
+            </div>
+            <div class="timeline-content">
+                <p>Volunteered at the Lynnwood Food Bank, helping organize and distribute donated items while supporting daily operations and serving community members in need.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2 class="section-title">Relevant Strengths</h2>
+        <div class="strengths-grid">
+            <span class="strength-tag">Leadership & Teamwork</span>
+            <span class="strength-tag">Community Service</span>
+            <span class="strength-tag">Dependability</span>
+            <span class="strength-tag">Organization</span>
+            <span class="strength-tag">Engineering Curiosity</span>
+            <span class="strength-tag">Mentoring Mindset</span>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Haarish Yogeswaran. All rights reserved.</p>
+    </footer>
+
 </body>
 </html>
