@@ -10,23 +10,24 @@
     
     <style>
         :root {
-            --bg-color: #03030a; 
-            --bg-gradient: radial-gradient(circle at 10% 20%, #1a0b2e 0%, #03030a 60%);
-            --text-main: #f8fafc; 
-            --text-muted: #94a3b8; 
-            --accent-cyan: #00f3ff; 
-            --accent-purple: #bd00ff; 
-            --card-bg: rgba(30, 20, 50, 0.15); 
-            --card-border: rgba(255, 255, 255, 0.06); 
-            --card-hover-border: rgba(0, 243, 255, 0.4);
+            /* Apple Pro Dark Theme */
+            --bg-color: #000000; 
+            --bg-gradient: radial-gradient(circle at 50% 0%, #1c1c1e 0%, #000000 70%);
+            --text-main: #f5f5f7; /* Apple Off-White */
+            --text-muted: #86868b; /* Apple Gray */
+            --accent-primary: #2997ff; /* Apple Blue */
+            --accent-secondary: #ffffff; 
+            --card-bg: rgba(28, 28, 30, 0.4); 
+            --card-border: rgba(255, 255, 255, 0.1); 
+            --card-hover-border: rgba(41, 151, 255, 0.4);
             --font-main: 'Inter', sans-serif;
-            --section-padding: 8rem 2rem; /* Increased for Apple-style breathing room */
-            --max-width: 1200px; /* Wider for Bento grids */
+            --section-padding: 8rem 2rem; 
+            --max-width: 1200px; 
         }
 
         @media (max-width: 768px) {
             :root {
-                --section-padding: 4rem 1.2rem; /* Tighter padding for mobile */
+                --section-padding: 4rem 1.2rem;
             }
         }
 
@@ -46,11 +47,11 @@
             -webkit-font-smoothing: antialiased;
             scroll-behavior: smooth;
             overflow-x: hidden;
-            letter-spacing: -0.01em; /* Apple-style typography */
+            letter-spacing: -0.01em;
         }
 
         a {
-            color: var(--accent-cyan);
+            color: var(--accent-primary);
             text-decoration: none;
             transition: all 0.3s ease;
             position: relative;
@@ -58,14 +59,14 @@
 
         a:hover {
             color: var(--text-main);
-            text-shadow: 0 0 8px var(--accent-cyan);
+            text-shadow: 0 0 8px rgba(41, 151, 255, 0.5);
         }
 
         header {
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(3, 3, 10, 0.6);
+            background: rgba(0, 0, 0, 0.6);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--card-border);
@@ -85,9 +86,7 @@
         .logo {
             font-weight: 800;
             font-size: 1.5rem;
-            background: linear-gradient(to right, var(--accent-cyan), var(--accent-purple));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: var(--text-main);
             letter-spacing: -0.02em;
         }
 
@@ -106,7 +105,7 @@
         }
 
         .nav-links a:hover {
-            color: var(--accent-cyan);
+            color: var(--text-main);
             text-shadow: none;
         }
 
@@ -127,27 +126,24 @@
         }
 
         .hero-title {
-            font-size: clamp(2.8rem, 8vw, 7rem); /* Adjusted for mobile screens */
+            font-size: clamp(2.8rem, 8vw, 7rem); 
             font-weight: 800;
             margin-bottom: 0.5rem;
-            background: linear-gradient(135deg, #ffffff 0%, var(--accent-cyan) 50%, var(--accent-purple) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: var(--text-main);
             line-height: 1.05;
             letter-spacing: -0.04em;
-            filter: drop-shadow(0 0 30px rgba(0, 243, 255, 0.2));
         }
 
         .hero-subtitle {
             font-size: clamp(1.1rem, 4vw, 2rem);
-            color: var(--text-muted);
+            color: var(--accent-primary);
             margin-bottom: 2.5rem;
             font-weight: 500;
             letter-spacing: -0.02em;
         }
 
         .hero-contact {
-            background: rgba(255,255,255,0.03);
+            background: rgba(255,255,255,0.05);
             padding: 1rem 2rem;
             border-radius: 99px;
             border: 1px solid var(--card-border);
@@ -155,7 +151,8 @@
             margin-bottom: 2.5rem;
             font-size: 1.05rem;
             backdrop-filter: blur(12px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            -webkit-backdrop-filter: blur(12px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
         }
 
         .hero-contact p {
@@ -177,8 +174,8 @@
             margin-bottom: 4rem;
             position: relative;
             display: block;
-            text-align: center; /* Centered like Apple feature pages */
-            color: #fff;
+            text-align: center;
+            color: var(--text-main);
             letter-spacing: -0.03em;
         }
 
@@ -190,15 +187,14 @@
             bottom: -16px;
             width: 80px;
             height: 4px;
-            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-purple));
+            background: var(--accent-primary);
             border-radius: 4px;
         }
 
-        /* Apple Bento Box Grid System */
         .bento-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
-            gap: 1.5rem; /* Slightly tighter on mobile */
+            gap: 1.5rem; 
         }
 
         .bento-grid.grid-2 {
@@ -214,7 +210,7 @@
             backdrop-filter: blur(24px);
             -webkit-backdrop-filter: blur(24px);
             border: 1px solid var(--card-border);
-            border-radius: 32px; /* Deep rounded corners for Apple aesthetic */
+            border-radius: 32px; 
             padding: 3rem;
             transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
             position: relative;
@@ -236,7 +232,7 @@
         .timeline-item:hover {
             transform: translateY(-8px) scale(1.01);
             border-color: var(--card-hover-border);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4), 0 0 30px rgba(0, 243, 255, 0.15);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(41, 151, 255, 0.1);
         }
 
         .timeline-item:hover::before {
@@ -269,16 +265,16 @@
 
         .timeline-title h4 {
             font-size: 1.1rem;
-            color: var(--accent-cyan);
+            color: var(--text-muted);
             font-weight: 500;
         }
 
         .timeline-date {
-            color: var(--accent-purple);
+            color: var(--accent-primary);
             font-size: 0.9rem;
             font-weight: 600;
-            background: rgba(189, 0, 255, 0.1);
-            border: 1px solid rgba(189, 0, 255, 0.2);
+            background: rgba(41, 151, 255, 0.1);
+            border: 1px solid rgba(41, 151, 255, 0.2);
             padding: 0.5rem 1.2rem;
             border-radius: 99px;
             white-space: nowrap;
@@ -302,7 +298,31 @@
         }
 
         .timeline-content li::marker {
-            color: var(--accent-purple);
+            color: var(--accent-primary);
+        }
+
+        /* Current Courses Specific Styling */
+        .course-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            padding-left: 0 !important;
+            margin-top: 1rem;
+        }
+        
+        .course-list li {
+            list-style: none;
+            background: rgba(255,255,255,0.05);
+            padding: 0.4rem 1rem;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            color: var(--text-main);
+            border: 1px solid var(--card-border);
+            margin-bottom: 0 !important;
+        }
+
+        .course-list li::marker {
+            display: none;
         }
 
         .strengths-grid {
@@ -313,23 +333,21 @@
         }
 
         .strength-tag {
-            background: rgba(0, 243, 255, 0.05);
-            color: #fff;
-            border: 1px solid rgba(0, 243, 255, 0.2);
+            background: rgba(41, 151, 255, 0.05);
+            color: var(--text-main);
+            border: 1px solid rgba(41, 151, 255, 0.3);
             padding: 0.8rem 1.8rem;
             border-radius: 99px;
             font-weight: 600;
             font-size: 1rem;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             backdrop-filter: blur(8px);
         }
 
         .strength-tag:hover {
-            background: rgba(0, 243, 255, 0.15);
-            border-color: var(--accent-cyan);
+            background: rgba(41, 151, 255, 0.15);
+            border-color: var(--accent-primary);
             transform: translateY(-4px) scale(1.05);
-            box-shadow: 0 8px 25px rgba(0, 243, 255, 0.2);
         }
 
         footer {
@@ -338,7 +356,7 @@
             border-top: 1px solid var(--card-border);
             color: var(--text-muted);
             margin-top: 4rem;
-            background: rgba(3, 3, 10, 0.8);
+            background: rgba(0, 0, 0, 0.8);
             backdrop-filter: blur(20px);
             position: relative;
             z-index: 2;
@@ -353,14 +371,14 @@
             .nav-links {
                 display: flex; 
                 width: 100%;
-                overflow-x: auto; /* Apple-style horizontal scroll for mobile nav */
+                overflow-x: auto; 
                 padding-bottom: 0.5rem;
                 justify-content: flex-start;
                 -webkit-overflow-scrolling: touch;
-                scrollbar-width: none; /* Hide scrollbar Firefox */
+                scrollbar-width: none; 
             }
             .nav-links::-webkit-scrollbar {
-                display: none; /* Hide scrollbar Chrome/Safari */
+                display: none; 
             }
             .nav-links li {
                 white-space: nowrap;
@@ -380,11 +398,11 @@
                 word-break: break-word;
             }
             .timeline-item {
-                padding: 1.8rem; /* slightly less padding to maximize space */
+                padding: 1.8rem; 
                 border-radius: 24px;
             }
             .header-top {
-                flex-direction: column; /* Stack logo and title on small screens */
+                flex-direction: column; 
                 align-items: flex-start;
                 gap: 1rem;
             }
@@ -398,10 +416,9 @@
             height: 100vh;
             z-index: 0;
             pointer-events: none;
-            opacity: 0.8;
+            opacity: 0.6; /* Slightly lower opacity for Pro theme */
         }
 
-        /* Scroll Reveal Advanced Classes */
         .reveal {
             opacity: 0;
             transform: translateY(50px) scale(0.95);
@@ -414,7 +431,6 @@
             transform: translateY(0) scale(1);
         }
 
-        /* Hero Intro Animations */
         .hero-anim {
             opacity: 0;
             animation: elegantFadeUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
@@ -439,14 +455,14 @@
 
     <header>
         <nav>
-            <div class="logo">HY</div>
+            <div class="logo">Haarish Yogeswaran</div>
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
                 <li><a href="#education">Education</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#leadership">Volunteering</a></li>
                 <li><a href="#awards">Awards</a></li>
-                <li><a href="#leadership">Leadership</a></li>
-                <li><a href="#certifications">Certifications</a></li>
-                <li><a href="#skills">Skills & Languages</a></li>
+                <li><a href="#skills">Skills</a></li>
             </ul>
         </nav>
     </header>
@@ -460,7 +476,7 @@
                 <p><a href="https://www.linkedin.com/in/haarish-y-52973924s" target="_blank" rel="noopener noreferrer">LinkedIn Profile</a></p>
             </div>
             <p style="color: var(--text-muted); max-width: 700px; margin: 0 auto; font-size: 1.1rem; line-height: 1.8;">
-                Seeking Summer 2027 engineering, product, facilities, quality, or community-focused technical opportunities in the Lynnwood / Everett / Bothell / Seattle area.
+                Seeking Summer 2027 engineering, product, facilities, quality, or community-focused technical opportunities in the Seattle / Lynnwood / Everett / Bothell area.
             </p>
         </div>
     </section>
@@ -480,6 +496,17 @@
                         </div>
                     </div>
                     <div class="timeline-date">Expected 2030</div>
+                </div>
+                <div class="timeline-content">
+                    <p style="margin-bottom: 0.5rem; color: var(--text-main); font-weight: 600;">Current Coursework (Fall):</p>
+                    <ul class="course-list">
+                        <li>U.S. History Since 1877</li>
+                        <li>Calculus I</li>
+                        <li>Intro Electrical Engineering</li>
+                        <li>Intro to Electrical Eng Lab</li>
+                        <li>General Physics I</li>
+                        <li>Writing and Rhetoric</li>
+                    </ul>
                 </div>
             </div>
 
@@ -517,56 +544,74 @@
         </div>
     </section>
 
-    <section id="awards">
-        <h2 class="section-title">Honors & Awards</h2>
-
+    <section id="projects">
+        <h2 class="section-title">Projects</h2>
+        
         <div class="bento-grid">
-            <div class="timeline-item">
+            <div class="timeline-item" style="grid-column: 1 / -1;">
                 <div class="timeline-header">
                     <div class="timeline-title">
-                        <h3>Seattle City Light/CLEA Scholarship</h3>
-                        <h4>$1,500 Award</h4>
+                        <h3>Personal Portfolio Website</h3>
+                        <h4>Front-end Web Development & Design</h4>
                     </div>
-                    <div class="timeline-date">May 2026</div>
+                    <div class="timeline-date">2026</div>
                 </div>
                 <div class="timeline-content">
-                    <p>Selected as one of 9 recipients of the Seattle City Light/CLEA Scholarship. Award amounts varied between recipients, and I received the highest award amount of $1,500. This scholarship recognized my academic achievement, leadership, and community involvement.</p>
-                </div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="timeline-header">
-                    <div class="timeline-title">
-                        <h3>Donald Haase Memorial Scholarship</h3>
-                        <h4>$1,000 Award - Foundation for Edmonds School District</h4>
-                    </div>
-                    <div class="timeline-date">Jun 2026</div>
-                </div>
-                <div class="timeline-content">
-                    <p><em>Associated with Mountlake Terrace High School</em></p>
-                    <p>Recipient of the Donald Haase Memorial Scholarship, recognizing my academic journey and achievements as a student.</p>
-                </div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="timeline-header">
-                    <div class="timeline-title">
-                        <h3>Cal Poly National Green & Gold Scholarship</h3>
-                        <h4>$1,000 Award - Cal Poly SLO</h4>
-                    </div>
-                    <div class="timeline-date">Apr 2026</div>
-                </div>
-                <div class="timeline-content">
-                    <p>Recipient of the Cal Poly National Green & Gold Scholarship, a $1,000 award granted in recognition of scholarship eligibility, academic achievement, and overall student profile.</p>
+                    <p>Designed, engineered, and deployed a fully responsive, single-page professional portfolio website utilizing HTML, CSS, and Vanilla JavaScript without external frameworks.</p>
+                    <ul>
+                        <li>Implemented a premium Apple-inspired "Bento Box" grid system with frosted glassmorphism effects and fluid mobile-first layouts.</li>
+                        <li>Developed a custom, interactive high-performance particle physics engine for the background using the HTML5 Canvas API, complete with mouse/touch repelling mechanics and network line-drawing.</li>
+                        <li>Engineered seamless scroll-reveal animations via IntersectionObserver for an optimized, app-like user experience.</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
     <section id="leadership">
-        <h2 class="section-title">Leadership & Service</h2>
+        <h2 class="section-title">Leadership & Volunteering</h2>
 
         <div class="bento-grid grid-2">
+            
+            <div class="timeline-item">
+                <div class="timeline-header">
+                    <div class="timeline-title">
+                        <h3>Lynnwood Food Bank</h3>
+                        <h4>Volunteer (Social Services)</h4>
+                    </div>
+                    <div class="timeline-date">Jun 2024 - Jun 2026</div>
+                </div>
+                <div class="timeline-content">
+                    <p>Assisted with sorting, packing, and distributing food to individuals and families in need. Helped manage inventory, support daily operations, and ensured a welcoming environment for all clients.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-header">
+                    <div class="timeline-title">
+                        <h3>Hindu Temple & Cultural Center</h3>
+                        <h4>Kitchen & Services Volunteer</h4>
+                    </div>
+                    <div class="timeline-date">Jan 2021 - Present</div>
+                </div>
+                <div class="timeline-content">
+                    <p>Dedicated over 5 years to community service by consistently volunteering almost every Saturday to help in the kitchen, cook meals, and serve attendees.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-header">
+                    <div class="timeline-title">
+                        <h3>WSSTA</h3>
+                        <h4>Community Service</h4>
+                    </div>
+                    <div class="timeline-date">Oct 2024 - Present</div>
+                </div>
+                <div class="timeline-content">
+                    <p>Raised approximately $6,000 for the Washington State Sri Lankan Tamil Association (WSSTA) to support students in Sri Lanka and collaborated with volunteers to organize donated items.</p>
+                </div>
+            </div>
+
             <div class="timeline-item">
                 <div class="timeline-header">
                     <div class="timeline-title">
@@ -616,20 +661,49 @@
                     </ul>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <section id="awards">
+        <h2 class="section-title">Honors & Awards</h2>
+
+        <div class="bento-grid">
+            <div class="timeline-item">
+                <div class="timeline-header">
+                    <div class="timeline-title">
+                        <h3>Seattle City Light/CLEA Scholarship</h3>
+                        <h4>$1,500 Award</h4>
+                    </div>
+                    <div class="timeline-date">May 2026</div>
+                </div>
+                <div class="timeline-content">
+                    <p>Selected as one of 9 recipients of the Seattle City Light/CLEA Scholarship. Received the highest award amount of $1,500 in recognition of academic achievement, leadership, and community involvement.</p>
+                </div>
+            </div>
 
             <div class="timeline-item">
                 <div class="timeline-header">
                     <div class="timeline-title">
-                        <h3>Community Initiatives</h3>
-                        <h4>WSSTA & Lynnwood Foodbank</h4>
+                        <h3>Donald Haase Memorial Scholarship</h3>
+                        <h4>$1,000 Award</h4>
                     </div>
-                    <div class="timeline-date">2024 - Present</div>
+                    <div class="timeline-date">Jun 2026</div>
                 </div>
                 <div class="timeline-content">
-                    <ul>
-                        <li><strong>WSSTA:</strong> Raised approximately $6,000 to support students in Sri Lanka and worked with volunteers to organize donated items.</li>
-                        <li><strong>Foodbank:</strong> Volunteered at the Lynnwood Food Bank, helping organize and distribute donated items while supporting daily operations.</li>
-                    </ul>
+                    <p>Issued by the Foundation for Edmonds School District, recognizing my academic journey and achievements as a student at Mountlake Terrace High School.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-header">
+                    <div class="timeline-title">
+                        <h3>National Green & Gold Scholarship</h3>
+                        <h4>$1,000 Award</h4>
+                    </div>
+                    <div class="timeline-date">Apr 2026</div>
+                </div>
+                <div class="timeline-content">
+                    <p>Granted by California Polytechnic State University in recognition of scholarship eligibility, academic achievement, and overall exceptional student profile.</p>
                 </div>
             </div>
         </div>
@@ -689,25 +763,24 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Add staggered animation to hero elements
+            // Staggered animation for hero elements
             const heroElements = document.querySelectorAll('.hero-title, .hero-subtitle, .hero-contact, .hero p');
             heroElements.forEach((el, i) => {
                 el.classList.add('hero-anim');
                 el.style.animationDelay = `${i * 0.15}s`;
             });
 
-            // Add reveal class to other sections dynamically
+            // Scroll Reveal implementation
             const scrollElements = document.querySelectorAll('.section-title, .timeline-item, .strengths-grid');
             scrollElements.forEach(el => el.classList.add('reveal'));
 
-            // Smoother observer with scaling threshold
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('active');
                     }
                 });
-            }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+            }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
             document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
         });
@@ -730,7 +803,6 @@
             mouse.y = null;
         });
         
-        // Mobile touch support for background canvas
         window.addEventListener('touchmove', (e) => {
             if (e.touches.length > 0) {
                 mouse.x = e.touches[0].clientX;
@@ -758,41 +830,33 @@
                 this.x = Math.random() * width;
                 this.y = Math.random() * height;
                 this.size = Math.random() * 2 + 0.5;
-                this.baseX = this.x;
-                this.baseY = this.y;
                 this.density = (Math.random() * 20) + 5;
-                // Slower, smoother drift
-                this.vx = (Math.random() - 0.5) * 0.3;
-                this.vy = (Math.random() - 0.5) * 0.3;
+                this.vx = (Math.random() - 0.5) * 0.4;
+                this.vy = (Math.random() - 0.5) * 0.4;
                 
-                // Assign a color from our new theme (Cyan or Purple)
-                this.color = Math.random() > 0.5 ? '#00f3ff' : '#bd00ff';
+                // Apple Pro Theme Colors: Mostly silver/white with occasional blue accents
+                this.color = Math.random() > 0.85 ? '#2997ff' : '#ffffff';
             }
             
             draw() {
                 ctx.fillStyle = this.color;
-                ctx.shadowBlur = 10;
-                ctx.shadowColor = this.color;
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
                 ctx.closePath();
                 ctx.fill();
-                
-                // Reset shadow for performance on lines
-                ctx.shadowBlur = 0;
             }
             
             update() {
                 this.x += this.vx;
                 this.y += this.vy;
                 
-                // Wrap around edges smoothly
+                // Wrap around edges
                 if(this.x < 0) this.x = width;
                 if(this.x > width) this.x = 0;
                 if(this.y < 0) this.y = height;
                 if(this.y > height) this.y = 0;
 
-                // Parallax Mouse Interaction
+                // Mouse Repel Physics
                 if (mouse.x != null) {
                     let dx = mouse.x - this.x;
                     let dy = mouse.y - this.y;
@@ -816,23 +880,22 @@
         
         function initParticles() {
             particles = [];
-            // Optimize density for smoother performance with glow effects
-            let numParticles = (width * height) / 15000; 
+            let numParticles = (width * height) / 14000; 
             for (let i = 0; i < numParticles; i++) {
                 particles.push(new Particle());
             }
         }
         
         function animate() {
-            // Smooth trailing effect instead of clearRect
-            ctx.fillStyle = 'rgba(3, 3, 10, 0.2)';
+            // Dark trail effect for Apple Pro theme
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.3)';
             ctx.fillRect(0, 0, width, height);
             
-            // Draw mouse glowing orb
+            // Mouse glowing aura (Subtle Apple Blue)
             if (mouse.x != null) {
                 let gradient = ctx.createRadialGradient(mouse.x, mouse.y, 0, mouse.x, mouse.y, mouse.radius * 0.8);
-                gradient.addColorStop(0, 'rgba(0, 243, 255, 0.08)');
-                gradient.addColorStop(1, 'rgba(0, 243, 255, 0)');
+                gradient.addColorStop(0, 'rgba(41, 151, 255, 0.06)');
+                gradient.addColorStop(1, 'rgba(41, 151, 255, 0)');
                 ctx.fillStyle = gradient;
                 ctx.beginPath();
                 ctx.arc(mouse.x, mouse.y, mouse.radius * 0.8, 0, Math.PI * 2);
@@ -846,7 +909,7 @@
             requestAnimationFrame(animate);
         }
         
-        // Draw lines between close particles
+        // Draw connection lines
         function connect() {
             let opacityValue = 1;
             for (let a = 0; a < particles.length; a++) {
@@ -855,12 +918,16 @@
                     let dy = particles[a].y - particles[b].y;
                     let distance = Math.sqrt(dx * dx + dy * dy);
                     
-                    if (distance < 120) {
-                        opacityValue = 1 - (distance / 120);
-                        ctx.strokeStyle = `rgba(189, 0, 255, ${opacityValue * 0.15})`;
-                        if(particles[a].color === '#00f3ff' || particles[b].color === '#00f3ff') {
-                             ctx.strokeStyle = `rgba(0, 243, 255, ${opacityValue * 0.15})`;
+                    if (distance < 110) {
+                        opacityValue = 1 - (distance / 110);
+                        // Default line color is subtle gray/white
+                        ctx.strokeStyle = `rgba(255, 255, 255, ${opacityValue * 0.1})`;
+                        
+                        // If one particle is blue, make the line subtly blue
+                        if(particles[a].color === '#2997ff' || particles[b].color === '#2997ff') {
+                             ctx.strokeStyle = `rgba(41, 151, 255, ${opacityValue * 0.15})`;
                         }
+                        
                         ctx.lineWidth = 1;
                         ctx.beginPath();
                         ctx.moveTo(particles[a].x, particles[a].y);
@@ -871,7 +938,6 @@
             }
         }
         
-        // Start the system
         resize();
         animate();
     </script>
